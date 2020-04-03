@@ -22,7 +22,18 @@ module.exports = {
             loader: "html-loader"
           }
         ]
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+                name: '[sha512:hash:base64:7].[ext]',
+            },
+          },
+        ],
+      },
     ]
   },
   plugins: [
@@ -30,5 +41,6 @@ module.exports = {
       template: "./public/index.html",
       filename: "./index.html"
     })
-  ]
+  ],
+  // devtool: "eval-cheap-module-source-map"
 };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import logo from '../public/images/image.png';
 
 const Form = () => {
     const [value, setValue] = useState('');
@@ -10,6 +11,7 @@ const Form = () => {
     return (
         <div>
             <h1>Some title</h1>
+            <img src={logo} alt="logo" style={{width: 200, height: 200}}/>
             <form>
                 <input
                 type="text"
