@@ -6,7 +6,8 @@ module.exports = ({ env }) => {
     return {
         output: {
             path: path.resolve(__dirname, 'dist'),
-            filename: 'home.bundle.js'
+            filename: 'home.bundle.js',
+            // publicPath: 'https://oscaropower.test/img/cms/home/new/'
         },
         module: {
           rules: [
@@ -31,7 +32,8 @@ module.exports = ({ env }) => {
                 {
                   loader: 'file-loader',
                   options: {
-                      name: '[sha512:hash:base64:7].[ext]',
+                      // name: '[sha512:hash:base64:7].[ext]',
+                      name: '[name].[ext]'
                   },
                 },
               ],
