@@ -4,13 +4,28 @@ const path = require('path');
 
 module.exports = ({ env }) => {  
     return {
+        entry: {
+          entry: './src/index.tsx',
+        },
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: 'home.bundle.js',
             // publicPath: 'https://oscaropower.test/img/cms/home/new/'
         },
+        resolve: {
+          extensions: [".ts", ".tsx", ".js"]
+        },
         module: {
           rules: [
+              {
+                test: /\.ts(x?)$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: "ts-loader"
+                    }
+                ]
+            },
             {
               test: /\.(js|jsx)$/,
               exclude: /node_modules/,
@@ -47,5 +62,11 @@ module.exports = ({ env }) => {
                 filename: "./index.html"
             })
         ],
-      devtool: env === 'dev'? "eval-cheap-module-source-map": "source-map"
+        devtool: env === 'dev'? "eval-cheap-module-source-map": "source-map",
+        devServer: {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            },
+            port: 3000
+      },
 }};
