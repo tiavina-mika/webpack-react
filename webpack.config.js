@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -37,10 +38,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: "./public/index.html",
-      filename: "./index.html"
-    })
+      new CleanWebpackPlugin(),
+      new HtmlWebPackPlugin({
+          template: "./public/index.html",
+          filename: "./index.html"
+      })
   ],
   // devtool: "eval-cheap-module-source-map"
 };
