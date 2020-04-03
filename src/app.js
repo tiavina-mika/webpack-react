@@ -9,7 +9,7 @@ const Form = () => {
 
     return (
         <div>
-            <h1>Some title 2</h1>
+            <h1>Some title</h1>
             <form>
                 <input
                 type="text"
