@@ -1,11 +1,11 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
-module.exports = ({ env }) => {  
+module.exports = ({ env }) => {
     return {
         entry: {
-          entry: './src/index.tsx',
+            entry: './src/index.tsx',
         },
         output: {
             path: path.resolve(__dirname, 'dist'),
@@ -13,60 +13,59 @@ module.exports = ({ env }) => {
             // publicPath: 'https://oscaropower.test/img/cms/home/new/'
         },
         resolve: {
-          extensions: [".ts", ".tsx", ".js"]
+            extensions: ['.ts', '.tsx', '.js'],
         },
         module: {
-          rules: [
-              {
-                test: /\.ts(x?)$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "ts-loader"
-                    }
-                ]
-            },
-            {
-              test: /\.(js|jsx)$/,
-              exclude: /node_modules/,
-              use: {
-                loader: "babel-loader"
-              }
-            },
-            {
-              test: /\.html$/,
-              use: [
+            rules: [
                 {
-                  loader: "html-loader"
-                }
-              ]
-            },
-            {
-              test: /\.(png|jpe?g|gif)$/i,
-              use: [
-                {
-                  loader: 'file-loader',
-                  options: {
-                      // name: '[sha512:hash:base64:7].[ext]',
-                      name: '[name].[ext]'
-                  },
+                    test: /\.ts(x?)$/,
+                    exclude: /node_modules/,
+                    use: [
+                        {
+                            loader: 'ts-loader',
+                        },
+                    ],
                 },
-              ],
-            },
-          ]
+                {
+                    test: /\.(js|jsx)$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: 'babel-loader',
+                    },
+                },
+                {
+                    test: /\.html$/,
+                    use: [
+                        {
+                            loader: 'html-loader',
+                        },
+                    ],
+                },
+                {
+                    test: /\.(png|jpe?g|gif)$/i,
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                // name: '[sha512:hash:base64:7].[ext]',
+                                name: '[name].[ext]',
+                            },
+                        },
+                    ],
+                },
+            ],
         },
         plugins: [
             new CleanWebpackPlugin(),
             new HtmlWebPackPlugin({
-                template: "./public/index.html",
-                filename: "./index.html"
-            })
+                template: './public/index.html',
+                filename: './index.html',
+            }),
         ],
-        devtool: env === 'dev'? "eval-cheap-module-source-map": "source-map",
+        devtool: env === 'dev' ? 'eval-cheap-module-source-map' : 'source-map',
         devServer: {
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            },
-            port: 3000
-      },
-}};
+            headers: { 'Access-Control-Allow-Origin': '*' },
+            port: 3000,
+        },
+    };
+};

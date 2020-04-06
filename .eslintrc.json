@@ -34,6 +34,7 @@
     "no-var": "warn",
     "prettier/prettier": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/no-unused-vars": [
         2,
         {"args": "none"}
