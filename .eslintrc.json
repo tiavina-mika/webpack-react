@@ -27,7 +27,12 @@
     "no-multi-spaces": "warn",
     "no-redeclare": "warn",
     "no-unused-vars": "warn",
-    "prettier/prettier": "error",
+    "array-bracket-spacing": ["warn", "never"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "no-mixed-spaces-and-tabs": "warn",
+    "space-before-blocks": "warn",
+    "no-var": "warn",
+    "prettier/prettier": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": [
         2,

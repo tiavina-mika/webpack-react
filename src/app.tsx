@@ -10,6 +10,9 @@ const Form: FunctionComponent<FormProps> = ({ name }) => {
     const [value, setValue] = useState<string>('');
     const [display, setDisplay] = useState<boolean>(false);
 
+    const perso = [{ name: 'tiks' }, 'tiks'];
+    console.log('perso: ', perso);
+
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
     };
