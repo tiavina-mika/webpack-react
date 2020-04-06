@@ -13,7 +13,7 @@ const App: FunctionComponent = () => {
         <ThemeProvider theme={theme}>
             <Home />
         </ThemeProvider>
-    )
-}
+    );
+};
 
 export default App;
